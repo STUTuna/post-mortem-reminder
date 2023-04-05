@@ -7,7 +7,7 @@ export class TelegramBotService implements OnModuleInit {
   private reminderInterval: NodeJS.Timeout;
 
   async onModuleInit() {
-    const token = '6257671019:AAG07LSoNObzIv-wR98LPq5Y94IZWMsT5ZE';
+    const token = process.env.TELEGRAM_BOT_TOKEN;
     this.bot = new TelegramBot(token, { polling: true });
 
     this.bot.onText(/\/start/, (msg) => {
